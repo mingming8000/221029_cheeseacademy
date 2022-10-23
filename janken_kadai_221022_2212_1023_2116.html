@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <link rel="stylesheet" href="css/sample.css">
+    <title>じゃんけん</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>じゃんけん</h1>
+    </header>
+
+    <main>
+        <h2>あなたの出す手は？</h2>
+        <ul id="janken">
+            <li id="gu_btn"><img class="img" src="./img/gu.png"></li>
+            <li id="cho_btn"><img class="img"  src="./img/choki.png"></li>
+            <li id="par_btn"><img class="img" src="./img/par.png"></li>
+        </ul>
+        <h2>コンピュータの出す手は、どれかなフワフフン？</h2>
+        <div>
+            <ul >
+                <li id="aite_gu_btn"><img class="img_gif aite_gu" src="./img/Gu_sazaesan.gif"></li>
+                <li id="aite_cho_btn"><img class="img_gif aite_cho" src="./img/Choki_sazaesan.gif"></li>
+                <li id="aite_par_btn"><img class="img_gif aite_par" src="./img/Par_sazaesan.gif"></li>
+            </ul>
+        </div>
+        <h2>コンピュータの出した手は？<span id="pc_hands"></span></h2>
+        
+        <h2>じゃんけんの結果は？<span id="judgement"></span></h2>
+        <!-- <div><span id="judgement"></span></div> -->
+    </main>
+
+    <style>
+        ul{
+            display:flex;
+        }
+
+        li{
+            width:33%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        li img{
+            width:300px;
+            height:300px;
+
+        }
+
+        li .img_gif{
+            width:480px;
+            height:270px;
+        }
+
+        #pc_hands{
+            width:300px;
+            height:50px;
+        }
+        #judgement{
+            width:100px;
+            height:100px;
+        }
+
+
+    </style>
+
+    <footer></footer>
+    <script>
+          $("#gu_btn").on("click",function(){
+            const r = Math.ceil(Math.random()*3);
+            let view1="";
+            let view2="";
+            if (r==1){
+                view1='グー';
+                // let cp = document.getElementById(aite_gu).src;
+                view2='あいこ';
+            }else if (r==2){
+                view1='チョキ';
+                // let cp = document.getElementById(aite_cho).src;
+                view2='あなたの勝ち';
+            }else if (r==3){
+                view1='パー';
+                // let cp = document.getElementById(aite_par).src;
+                // console.log(cp);
+                view2='あなたの負け';
+            }
+            $("#pc_hands").html(view1);
+            $("#judgement").html(view2);
+         });  
+
+         $("#cho_btn").on("click",function(){
+            const r = Math.ceil(Math.random()*3);
+            let view1="";
+            let view2="";
+            if (r==1){
+                view1='グー';
+                view2='あなたの負け';
+            }else if (r==2){
+                view1='チョキ';
+                view2='あいこ';
+            }else if (r==3){
+                view1='パー';
+                view2='あなたの勝ち';
+            }
+            $("#pc_hands").html(view1);
+            $("#judgement").html(view2);
+         });  
+
+         $("#par_btn").on("click",function(){
+            const r = Math.ceil(Math.random()*3);
+            let view1="";
+            let view2="";
+            if (r==1){
+                view1='グー';
+                view2='あなたの勝ち';
+            }else if (r==2){
+                view1='チョキ';
+                view2='あなたの負け';
+            }else if (r==3){
+                view1='パー';
+                view2='あいこ';
+            }
+            $("#pc_hands").html(view1);
+            $("#judgement").html(view2);
+         });  
+    </script>
+</body>
+</html>
